@@ -1,0 +1,30 @@
+<h1>Employee Details</h1>
+<div class="card">
+  <div class="card-body pb-0">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header"></div>
+          <div class="card-body position-relative">
+            <div class="ag-theme-balham" style="height:550px;">
+              <ag-grid-angular
+                style="width: 81%; height: 260px;"
+                class="ag-theme-balham"
+                [rowData]="employees"
+                [columnDefs]="columnDefs"
+                [animateRows]="true"
+                [pagination]="true"
+                [paginationPageSize]="5"
+                [floatingFilter]="true"
+                [animateRows]="true"
+                [frameworkComponents]="frameworkComponents"
+                (gridReady)="onGridReady($event)"
+                (cellClicked)="onCellClicked($event)"
+              ></ag-grid-angular>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
