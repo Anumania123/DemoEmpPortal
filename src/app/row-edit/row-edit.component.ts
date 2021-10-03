@@ -4,21 +4,23 @@ import { ICellRendererAngularComp } from 'ag-grid-angular';
 @Component({
   selector: 'app-row-edit',
   template: `
-  <button type="button" *ngIf="isNew == true" (click) = "onEditClick()" data-action-type="view" class="btn btn-default">
+  <button type="button" *ngIf="isNew == true" (click) = "onEditClick()" data-action-type="view" class="action-button edit">
              Edit
            </button>
 
-           <button type="button"  *ngIf="isNew == false" (click) = "onUpdateClick()" data-action-type="view" class="btn btn-default">
+           <button type="button"  *ngIf="isNew == false" (click) = "onUpdateClick()" data-action-type="view" class="action-button update">
              Update
            </button>
 
-           <button type="button" *ngIf="isNew == false" (click) = "onCancelClick()" data-action-type="view" class="btn btn-default">
+           <button type="button" *ngIf="isNew == false" (click) = "onCancelClick()" data-action-type="view" class="action-button cancel">
              Cancel
            </button>
 
-          <button type="button"  *ngIf="isNew == true" (click) = "onDeleteClick()" data-action-type="remove" class="btn btn-default">
+          <button type="button"  *ngIf="isNew == true" (click) = "onDeleteClick()" data-action-type="remove" class="action-button delete">
              Delete
           </button>`,
+  styleUrls: ['./row-edit.component.css'],
+
   styles: [
     `.btn {
           line-height: 0.5
