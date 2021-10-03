@@ -6,6 +6,14 @@
         <div class="card">
           <div class="card-header"></div>
           <div class="card-body position-relative">
+            <button
+              type="button"
+              (click)="onSubmit()"
+              data-action-type="view"
+              class="action-button cancel"
+            >
+              Cancel
+            </button>
             <div class="ag-theme-balham" style="height:550px;">
               <ag-grid-angular
                 style="width: 96%; height: 260px;"

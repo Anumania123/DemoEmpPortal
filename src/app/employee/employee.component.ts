@@ -196,4 +196,6 @@ export class EmployeeComponent implements OnInit {
     }
     return rowData;
   }
+
+  onSubmit() {}
 }

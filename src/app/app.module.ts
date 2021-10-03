@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AgGridModule } from 'ag-grid-angular';
 import { AppComponent } from './app.component';
@@ -16,6 +18,8 @@ import { EmployeeService } from './services/employee.service';
 @NgModule({
   imports: [
     BrowserModule,
+    ToastrModule,
+    AppRoutingModule,
     HttpClientModule,
     FormsModule,
     AgGridModule.withComponents([]),
