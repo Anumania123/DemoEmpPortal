@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HelloComponent } from './hello.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { RowEditComponent } from './row-edit/row-edit.component';
+import { CreateEmployeeComponent } from './create-employee/create-employee.component';
 
 /******** Services Import *****************/
 import { EmployeeService } from './services/employee.service';
@@ -19,6 +20,8 @@ import { EmployeeService } from './services/employee.service';
   imports: [
     BrowserModule,
     ToastrModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
@@ -29,6 +32,7 @@ import { EmployeeService } from './services/employee.service';
     HelloComponent,
     EmployeeComponent,
     RowEditComponent,
+    CreateEmployeeComponent,
     FooterComponent,
   ],
   providers: [EmployeeService],

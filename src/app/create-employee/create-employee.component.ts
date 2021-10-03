@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { EmployeeService } from '../services';
 import { Employee } from '../model/employee';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ToastrManager } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-employee',
@@ -14,8 +14,9 @@ export class CreateEmployeeComponent implements OnInit {
   createCustomerForm: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
-    public toastr: ToastrManager,
-    private employeeService: EmployeeService
+    //  public toastr: ToastrManager,
+    private employeeService: EmployeeService,
+    private toastrService: ToastrService
   ) {
     this.createCustomerForm = formBuilder.group({
       id: [0],
@@ -37,9 +38,9 @@ export class CreateEmployeeComponent implements OnInit {
     console.log('form value ' + JSON.stringify(this.createCustomerForm.value));
 
     if (this.createCustomerForm.valid) {
-      this.toastr.successToastr('This is a vaild form.', 'Success!');
+      this.toastrService.success('This is a vaild form.', 'Success!');
     } else {
-      this.toastr.warningToastr('This is not a valid form.', 'Alert!');
+      this.toastrService.warning('This is not a valid form.', 'Alert!');
     }
   }
 }

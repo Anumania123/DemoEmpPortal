@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CreateEmployeeComponent } from './components/create-customer/create-customer.component';
+import { CreateEmployeeComponent } from './create-employee/create-employee.component';
 
 const routes: Routes = [
   {
-    path: 'create',
-    component: CreateCustomerComponent,
+    path: 'add',
+    component: CreateEmployeeComponent,
   },
 ];
 
