@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ICellRendererAngularComp } from 'ag-grid-angular';
+import { EmployeeService } from '../services';
 
 @Component({
   selector: 'app-row-edit',
@@ -35,7 +36,7 @@ export class RowEditComponent implements ICellRendererAngularComp {
     this.params = params;
   }
 
-  constructor() {
+  constructor(private employeeService: EmployeeService) {
     this.isNew = true;
   }
 
@@ -75,7 +76,18 @@ export class RowEditComponent implements ICellRendererAngularComp {
     obj.type = 'update';
     this.params.api.stopEditing();
     obj.selectedData = [this.params.data];
-    // update logic ....
+    console.log(obj.selectedData);
+    const d = this.params.api.getEditingCells();
+
+    if (this.params.api.getSelectedRows().length == 0) {
+      // this.toastr.error('error', 'Please select a User for update');
+      return;
+    }
+    var row = this.params.api.getSelectedRows();
+
+    this.employeeService.update(row[0].id).subscribe((data) => {
+      //this.toastr.success('success', data);
+    });
   }
 
   public onCancelClick() {
@@ -88,5 +100,16 @@ export class RowEditComponent implements ICellRendererAngularComp {
     const selectedData = [this.params.node.data];
     console.log(selectedData);
     this.params.api.applyTransaction({ remove: selectedData });
+    var selectedRows = this.params.api.getSelectedRows();
+
+    if (selectedRows.length == 0) {
+      //this.toastr.error('error', 'Please select a User for deletion');
+      return;
+    }
+    this.employeeService.delete(selectedRows[0].id).subscribe((data) => {
+      // this.toastr.success('success', data);
+      //this.ngOnInit();
+      this.params.api.refreshRows(null);
+    });
   }
 }

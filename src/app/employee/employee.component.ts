@@ -67,6 +67,14 @@ export class EmployeeComponent implements OnInit {
   private createColumnDefs() {
     return [
       {
+        headerName: 'ID',
+        field: 'id',
+        filter: true,
+        enableSorting: true,
+        editable: false,
+        sortable: true,
+      },
+      {
         headerName: 'User Name',
         field: 'name',
         filter: true,
