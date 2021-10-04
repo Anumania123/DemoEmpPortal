@@ -1,3 +1,17 @@
 p {
   font-family: Lato;
 }
+
+h1 {
+  background-color: orange;
+}
+
+.action-button.add {
+  margin-left: 5px;
+  background-color: green; /* Red */
+}
+
+.action-button.view {
+  margin-left: 5px;
+  background-color: lightblue; /* Red */
+}

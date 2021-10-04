@@ -11,14 +11,13 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./create-employee.component.css'],
 })
 export class CreateEmployeeComponent implements OnInit {
-  createCustomerForm: FormGroup;
+  createEmployeeForm: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
     //  public toastr: ToastrManager,
-    private employeeService: EmployeeService,
-    private toastrService: ToastrService
+    private employeeService: EmployeeService // private toastrService: ToastrService
   ) {
-    this.createCustomerForm = formBuilder.group({
+    this.createEmployeeForm = formBuilder.group({
       id: [0],
       name: ['', Validators.required],
       phone: [''],
@@ -35,12 +34,13 @@ export class CreateEmployeeComponent implements OnInit {
 
   createCustomer() {
     console.log('create button clicked');
-    console.log('form value ' + JSON.stringify(this.createCustomerForm.value));
+    console.log('form value ' + JSON.stringify(this.createEmployeeForm.value));
 
-    if (this.createCustomerForm.valid) {
-      this.toastrService.success('This is a vaild form.', 'Success!');
+    if (this.createEmployeeForm.valid) {
+      alert('This is a vaild form Success!');
+      // this.toastrService.success('This is a vaild form.', 'Success!');
     } else {
-      this.toastrService.warning('This is not a valid form.', 'Alert!');
+      //this.toastrService.warning('This is not a valid form.', 'Alert!');
     }
   }
 }

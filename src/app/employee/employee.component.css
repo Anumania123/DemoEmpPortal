@@ -3,9 +3,13 @@ body {
 }
 
 h1 {
-  background-color: orange;
+  font-size: medium;
+  background-color: lightslategray;
 }
 .action-button.add {
   margin-left: 5px;
   background-color: green; /* Red */
+}
+.my-disable {
+  pointer-events: none;
 }

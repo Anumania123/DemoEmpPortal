@@ -1,2 +1,20 @@
-<app-employee></app-employee>
+<h1>Employee Details</h1>
+
+<button
+  type="button"
+  [routerLink]="['/add']"
+  data-action-type="view"
+  class="action-button add"
+>
+  ADD Employee
+</button>
+<button
+  type="button"
+  [routerLink]="['/view']"
+  data-action-type="view"
+  class="action-button view"
+>
+  View Employee
+</button>
+<router-outlet></router-outlet>
 <app-footer></app-footer>

@@ -1,4 +1,4 @@
-<h1>Employee Details</h1>
+<h1>Add Employee</h1>
 <div class="card">
   <div class="card-body pb-0">
     <div class="row">
@@ -6,15 +6,11 @@
         <div class="card">
           <div class="card-header"></div>
           <div class="card-body position-relative">
-            <button
-              type="button"
-              routerLink="/add"
-              data-action-type="view"
-              class="action-button add"
+            <div
+              class="ag-theme-balham"
+              style="height:400px;"
+              ng-class="{ 'my-disable': childEnabled }"
             >
-              ADD
-            </button>
-            <div class="ag-theme-balham" style="height:550px;">
               <ag-grid-angular
                 style="width: 96%; height: 260px;"
                 class="ag-theme-balham"

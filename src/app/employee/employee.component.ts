@@ -3,6 +3,7 @@ import { EmployeeService } from '../services';
 import { Employee } from '../model/employee';
 import { ColDef, GridApi, ColumnApi } from 'ag-grid-community';
 import { RowEditComponent } from '../row-edit/row-edit.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee',
@@ -10,7 +11,10 @@ import { RowEditComponent } from '../row-edit/row-edit.component';
   styleUrls: ['./employee.component.css'],
 })
 export class EmployeeComponent implements OnInit {
-  constructor(private employeeService: EmployeeService) {}
+  constructor(
+    private employeeService: EmployeeService,
+    private router: Router
+  ) {}
   rowData: any;
   public employees: Employee[];
   public columnDefs: ColDef[];
@@ -18,6 +22,7 @@ export class EmployeeComponent implements OnInit {
   private defaultColDef;
   private gridApi;
   private gridColumnApi;
+  public childEnabled: boolean = true;
   /* "id": 1,
     "name": "Leanne Graham",
     "username": "Bret",
@@ -197,5 +202,9 @@ export class EmployeeComponent implements OnInit {
     return rowData;
   }
 
-  onSubmit() {}
+  onAddButtonClick() {
+    alert('Hii');
+    this.childEnabled = false;
+    this.router.navigateByUrl('/add');
+  }
 }
